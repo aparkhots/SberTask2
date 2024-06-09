@@ -16,5 +16,7 @@
 
 # Как запустить?
 Лучший способ - используя команды:
--mvn test
--mvn allure:serve
+
+**-mvn test**
+
+**-mvn allure:serve**
