@@ -40,7 +40,7 @@ Feature: Testing Weather api
     When I send request
     Then I expect status code 403
 
-  Scenario: Request with incorrect start link
+  Scenario: Request with incorrect API uri
     Given Start link is "api.weatherapi.com"
     And Add API method "/current.json"
     And Set parameter "key" as "a2037d6e85a14ca1bb8170221240706"
