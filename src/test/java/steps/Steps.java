@@ -38,17 +38,20 @@ public class Steps {
 
     @Then("I expect status code {int}")
     public void statusCodeCheck(int expectedStatusCode) {
-        Assertions.assertEquals(expectedStatusCode, response.statusCode(), "Status code differ than expected");
+        Assertions.assertEquals(expectedStatusCode, response.statusCode(),
+                "Actual status code is " + response.statusCode() + " but expected "+ expectedStatusCode);
     }
 
     @Then("I expect ContentType of response as {string}")
     public void contentTypeCheck(String expectedType) {
-        Assertions.assertEquals(expectedType, response.contentType(), "ContentType differ than expected");
+        Assertions.assertEquals(expectedType, response.contentType(),
+                "Actual ContentType is " + response.contentType() +  " but expected "+ expectedType);
     }
 
     @Then("I expect value of {string} is {string} in response")
-    public void countryCheck(String jsonPath, String expectedValue) {
+    public void jsonValueCheck(String jsonPath, String expectedValue) {
         var actualValue = response.then().extract().jsonPath().getString(jsonPath);
-        Assertions.assertEquals(expectedValue, actualValue, "Actual value differ than expected");
+        Assertions.assertEquals(expectedValue, actualValue,
+                "Actual value of " + jsonPath + " is " + actualValue + " but expected "+ expectedValue);
     }
 }
